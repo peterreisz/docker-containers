@@ -1,4 +1,4 @@
-FROM sameersbn/gitlab-ci-runner:5.2.1
+FROM sameersbn/gitlab-ci-multi-runner:0.7.2-2
 MAINTAINER Peter Reisz <peter@reisz.tk>
 
 ENV JAVA_HOME="/usr/lib/jvm/java-8-oracle" \
