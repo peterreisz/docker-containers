@@ -1,21 +1,20 @@
-FROM sameersbn/gitlab-ci-multi-runner:0.7.2-2
+FROM sameersbn/gitlab-ci-multi-runner:1.0.0
 MAINTAINER Peter Reisz <peter@reisz.tk>
 
 ENV JAVA_HOME="/opt/java8" \
-    JAVA8_VERSION="8u72" \
+    JAVA8_VERSION="8u74" \
     JAVA7_VERSION="7u80" \
     MAVEN_HOME="/opt/maven" \
     MAVEN_VERSION="3.3.9" \
     ANT_HOME="/opt/ant" \
     ANT_VERSION="1.9.6" \
     GRADLE_HOME="/opt/gradle" \
-    GRADLE_VERSION="2.10" \
+    GRADLE_VERSION="2.11" \
     NODE_HOME="/opt/node" \
-    NODE_VERSION="5.5.0"
+    NODE_VERSION="5.6.0"
 
 ENV PATH="$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$GRADLE_HOME/bin:$NODE_HOME/bin"
 
-# required to use add-apt-repository
 RUN buildDeps='xz-utils unzip'; \
     set -x && \
     apt-get update && apt-get install -y $buildDeps --no-install-recommends && \
@@ -26,7 +25,7 @@ RUN buildDeps='xz-utils unzip'; \
     mv /opt/jdk1.7* /opt/java7 && \
 
     # java8
-    wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/$JAVA8_VERSION-b15/jdk-$JAVA8_VERSION-linux-x64.tar.gz" -O /tmp/java8.tar.gz && \
+    wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/$JAVA8_VERSION-b02/jdk-$JAVA8_VERSION-linux-x64.tar.gz" -O /tmp/java8.tar.gz && \
     tar -zxvf /tmp/java8.tar.gz -C /opt && \
     mv /opt/jdk1.8* /opt/java8 && \
 
@@ -55,3 +54,4 @@ RUN buildDeps='xz-utils unzip'; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     apt-get purge -y --auto-remove $buildDeps && \
     apt-get autoremove -y && apt-get clean
+    
