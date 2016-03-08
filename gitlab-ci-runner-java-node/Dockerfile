@@ -1,4 +1,4 @@
-FROM sameersbn/gitlab-ci-multi-runner:1.0.0
+FROM sameersbn/gitlab-ci-multi-runner:1.0.4
 MAINTAINER Peter Reisz <peter@reisz.tk>
 
 ENV JAVA_HOME="/opt/java8" \
@@ -11,7 +11,7 @@ ENV JAVA_HOME="/opt/java8" \
     GRADLE_HOME="/opt/gradle" \
     GRADLE_VERSION="2.11" \
     NODE_HOME="/opt/node" \
-    NODE_VERSION="5.6.0"
+    NODE_VERSION="5.7.1"
 
 ENV PATH="$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$GRADLE_HOME/bin:$NODE_HOME/bin"
 
