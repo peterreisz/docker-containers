@@ -1,4 +1,4 @@
-FROM sameersbn/gitlab-ci-multi-runner:1.1.3-1
+FROM sameersbn/gitlab-ci-multi-runner:1.1.3-2
 MAINTAINER Peter Reisz <peter@reisz.tk>
 
 ENV JAVA_HOME="/opt/java8" \
